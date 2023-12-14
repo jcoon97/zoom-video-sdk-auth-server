@@ -29,11 +29,7 @@ export type CoercibleNumbers = Pick<
 >;
 
 export type CoercedRequestBody<
-  K extends keyof RequestBody =
-    | "roleType"
-    | "expirationMinutes"
-    | "cloudRecordingOption"
-    | "cloudRecordingElection",
+  K extends keyof RequestBody = keyof CoercibleNumbers,
   V = number | undefined
 > = Omit<RequestBody, K> & { [P in K]: V };
 
